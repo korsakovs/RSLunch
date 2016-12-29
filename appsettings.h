@@ -31,7 +31,7 @@ public:
         Ukraine,
         Belarus,
         Moldova,
-        LastFlag // Shuld be last
+        LastFlag // Should be last
     };
 
     static AppSettings* getInstance();
