@@ -14,21 +14,33 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Russian Speaking Lunch NOW!</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>90</y>
-     <width>251</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>GIF</string>
-   </property>
-  </widget>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="gifLabel">
+     <property name="text">
+      <string>GIF</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="textLabel">
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>30</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>IT IS LUNCH TIME!!!</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

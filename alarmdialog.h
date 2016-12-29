@@ -16,6 +16,8 @@ public:
     explicit AlarmDialog(QWidget *parent = 0);
     ~AlarmDialog();
 
+    void setText(const QString& text);
+
 private:
     Ui::AlarmDialog *ui;
     QMovie *gifMovie;

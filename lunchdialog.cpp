@@ -30,7 +30,7 @@ LunchDialog::LunchDialog(QWidget *parent) :
 #ifdef QT_DEBUG
     testButton = new QPushButton(tr("Test"), this);
     ui->buttonsHorizontalLayout->addWidget(testButton);
-    connect(testButton, &QPushButton::clicked, alarmDialog, &QDialog::showNormal);
+    connect(testButton, &QPushButton::clicked, this, &LunchDialog::showAlarmDialog);
 #endif
 }
 
@@ -65,11 +65,20 @@ void LunchDialog::createActions()
 
     quitAction = new QAction(tr("&Quit"), this);
     connect(quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+
+#ifdef QT_DEBUG
+    testAction = new QAction(tr("&Test"), this);
+    connect(testAction, &QAction::triggered, this, &LunchDialog::showAlarmDialog);
+#endif
 }
 
 void LunchDialog::createTrayIcon()
 {
     trayIconMenu = new QMenu(this);
+#ifdef QT_DEBUG
+    trayIconMenu->addAction(testAction);
+    trayIconMenu->addSeparator();
+#endif
     trayIconMenu->addAction(settingsAction);
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(quitAction);
@@ -202,8 +211,20 @@ void LunchDialog::checkTimer()
         )
     {
         *lastAlarm = QTime::currentTime();
-        alarmDialog->show();
+        showAlarmDialog();
     }
+}
+
+void LunchDialog::showAlarmDialog()
+{
+    if (appSettings->dimaMode())
+    {
+        alarmDialog->setText(tr("IT IS LUNCH TIME, BLYAT'!!!"));
+    } else
+    {
+        alarmDialog->setText(tr("IT IS LUNCH TIME!!!"));
+    }
+    alarmDialog->showNormal();
 }
 
 LunchDialog::~LunchDialog()

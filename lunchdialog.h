@@ -40,6 +40,7 @@ protected slots:
     void reject() Q_DECL_OVERRIDE;
     void updateIcon();
     void checkTimer();
+    void showAlarmDialog();
 
 private:
     Ui::RSLunchDialog *ui;
@@ -58,6 +59,7 @@ private:
     AlarmDialog *alarmDialog;
 
 #ifdef QT_DEBUG
+    QAction *testAction;
     QPushButton *testButton;
 #endif
 };
