@@ -4,5 +4,6 @@
         <file>images/moldova.png</file>
         <file>images/russia.png</file>
         <file>images/ukraine.png</file>
+        <file>gif/russ.gif</file>
     </qresource>
 </RCC>
