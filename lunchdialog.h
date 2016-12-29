@@ -10,6 +10,7 @@
 #include <QTime>
 #include <QTimer>
 #include <QDebug>
+#include <QPushButton>
 #include "appsettings.h"
 #include "alarmdialog.h"
 
@@ -55,6 +56,10 @@ private:
 
     AppSettings *appSettings;
     AlarmDialog *alarmDialog;
+
+#ifdef QT_DEBUG
+    QPushButton *testButton;
+#endif
 };
 
 #endif // LUNCHDIALOG_H
