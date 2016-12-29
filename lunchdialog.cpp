@@ -26,6 +26,12 @@ LunchDialog::LunchDialog(QWidget *parent) :
 
     alarmDialog = new AlarmDialog();
     alarmDialog->setWindowFlags(Qt::WindowStaysOnTopHint);
+
+#ifdef QT_DEBUG
+    testButton = new QPushButton(tr("Test"), this);
+    ui->buttonsHorizontalLayout->addWidget(testButton);
+    connect(testButton, &QPushButton::clicked, alarmDialog, &QDialog::showNormal);
+#endif
 }
 
 void LunchDialog::setVisible(bool visible)
