@@ -2,6 +2,7 @@
 #define ALARMDIALOG_H
 
 #include <QDialog>
+#include <QMovie>
 
 namespace Ui {
 class AlarmDialog;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::AlarmDialog *ui;
+    QMovie *gifMovie;
 };
 
 #endif // ALARMDIALOG_H
